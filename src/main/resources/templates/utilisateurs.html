@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Liste des etudiants</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+			th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css">
+</head>
+<body>
+<div class="container spacer">
+	<table class="table tabel-striped">
+	<thead> 
+	 <tr>  
+	  <th>ID</th><th>NOM</th><th>PRENOM</th><th>LOGIN</th><th>TYPE-USER</th><th colspan="2"><center>Actions</center></th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each = "u:${users}">
+		<td th:text="${u.id}"> </td>
+		<td th:text="${u.nom}"> </td>
+		<td th:text="${u.prenom}"> </td>
+		<td th:text="${u.login}"> </td>
+		<td th:text="${u.enumUtilisateur}"></td>
+		<td><a th:href="@{supprimerUtilisateur(id=${u.id})}" class="btn btn-danger">supprimer</a></td>
+		<td><a th:href="@{modifierUtilisateur(id=${u.id})}" class="btn btn-primary">modifier type</a></td>
+	</tr>
+	</tbody>
+	</table>
+	
+</div>
+
+</body>
+</html>

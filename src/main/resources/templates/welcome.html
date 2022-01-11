@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Inscription</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+			th:href="@{/css/bootstrap.min.css}"/>
+         <link rel="stylesheet" type="text/css" href="../static/css/myStyle.css">
+	</head>
+<body>
+	<div class="container">
+		Welcome <b th:text="${utilisateur.prenom}"></b> <b th:text="${utilisateur.nom}"></b>
+		dans notre Gallery de photo. Si vous voulez ajouter une image vous devez d'abord s'authentifier et créer un album privé ou publique 
+		pour pouvoir mieux structurer la gallerie. Cliquez<a  th:href="@{formulaireConnexion}">ici</a>pour se connecter
+	</div>
+</body>
+</html> 

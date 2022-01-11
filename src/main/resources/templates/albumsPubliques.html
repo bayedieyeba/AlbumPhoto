@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Les albums</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+			th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css">
+</head>
+<body>
+<div class="container spacer">
+	<table class="table tabel-striped">
+	<thead> 
+	 <tr>  
+	  <th>ID</th><th>Nom</th><th>Categorie</th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each = "a:${albums}">
+		<td th:text="${a.id}"> </td>
+		<td th:text="${i.nom}"> </td>
+		<td th:text="${i.categorie}"> </td>
+		<td><a th:href="@{list/images(id=${a.id}}">voir les photos</a></td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+
+</body>
+</html>

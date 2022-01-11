@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Mes Albums</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+			th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{formulaireAjoutAlbum}">ajouter album</a>
+		    </li>
+		    <li class="nav-item">
+				<a class="nav-link" th:href="@{deconnexion}">Deconnexion</a>
+		    </li>
+		</ul>
+	</nav>
+	<div th:if="${albums!=null}" >
+  <div class="container spacer">
+	<table class="table tabel-striped">
+	<thead> 
+	
+	 <tr>  
+	  <th>NOM</th><th>CATEGORIE</th><th>TYPE ALBUM</th><th colspan="3"><center>Actions</center></th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each = "a:${albums}">
+		<td th:text="${a.nom}"> </td>
+		<td th:text="${a.categorie}"> </td>
+		<td th:text="${a.enumAlbum}"> </td>
+		<td><a th:href="@{listerPhoto(id=${a.id})}" class="btn btn-primary">Lister photos</a></td>
+		<td><a th:href="@{modifierAlbum(id=${a.id})}" class="btn btn-primary">Modifier</a></td>
+		<td><a th:href="@{formulaireAjoutImage(id=${a.id})}" class="btn btn-primary">Ajouter photo</a></td>
+		<td><a th:href="@{supprimer(id=${a.id})}" class="btn btn-danger">Supprimer</a></td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+</div>
+<div th:if="${utilisateur ==null}">
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Mes Photos</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+			th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css">
+</head>
+<body>
+<div class="container spacer">
+	<table class="table tabel-striped">
+	<thead> 
+	 <tr>  
+	  <th>TITRE</th><th>IMAGE</th><th colspan="2"><center>Actions</center></th>
+	 </tr>
+	</thead>
+	<tbody>
+	<tr th:each = "i:${images}">
+		<td th:text="${i.titre}"> </td>
+		<td><img th:src="'data:image/jpg;base64,'+${i.base64Encoded}" width=400, height=200> </td>
+		<td><a th:href="@{supprimerPhoto(id=${i.id})}" class="btn btn-danger">supprimer</a></td>
+		<td><a th:href="@{detailPhoto(id=${i.id})}" class="btn btn-primary">detailler</a></td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+</body>
+</html>
